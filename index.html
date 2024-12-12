@@ -1,0 +1,64 @@
+<html>
+	<head>	
+	<title> Anagram Checker App</title>
+		
+	<style>
+		* { font-size:50px; }
+		body { background-color:azure; }
+	</style>	
+	</head>
+	<body>
+		<center>
+			<h1>Anagram Checker App</h1>
+			<form onsubmit="check()" >	
+				<input type ="text" 		placeholder= "enter the string"		id="string1" />
+			<br/><br/>
+				<input type ="text" 		placeholder= "enter the string"		id="string2" />
+			<br/><br/>
+				<input type="submit" 	value="check" />
+			</form>
+			<h2 id="msg" />
+		<script>
+			function check()
+			{
+				event.preventDefault();
+				let string1= document.getElementById("string1");
+				let string2= document.getElementById("string2");
+				let msg= document.getElementById("msg");
+				
+				if(string1.value === "")
+				{
+					alert("string is empty");
+					msg.innerHTML =" ";
+					string1.focus();
+					return;
+				}
+			
+				if(string2.value === "")
+				{
+					alert("string is empty");
+					msg.innerHTML =" ";
+					string2.focus();
+					return;
+				}
+			
+					org_string1= string1.value;
+					sort_string1=org_string1.split("").sort().join("");
+		
+					org_string2= string2.value;
+					sort_string2=org_string2.split("").sort().join("");
+	
+				if(sort_string1===sort_string2)
+				{
+					msg.innerHTML= " yes the strings are anagrams ";
+				}
+	
+				else
+				{
+					msg.innerHTML = "no the strings are not anagrams ";
+				}
+			}
+		</script>
+		</center>
+	</body>
+</html>
